@@ -34,6 +34,9 @@
     2) find edges (min/max color range)  a, g
     3) fill in the gaps b c e f*/
 }
+::selection {
+  background: var(--accent-5);
+}
 
 * {
   box-sizing: border-box;
@@ -49,6 +52,8 @@ body {
 }
 
 nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto auto auto;
   background-color: var(--base-5);
   border-radius: 5px 5px 0px 0px;
   color: var(--grey-1);
@@ -56,29 +61,29 @@ nav {
   width: 100%;
   overflow: hidden;
   position: relative;
-  box-shadow: 0px 2px 4px var(--grey-2);
+  align-content: center;
+  box-shadow: 0px 2px 4px var(--grey-);
   z-index: 10;
-}
-
-nav ul {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  list-style: none;
 }
 
 .nav-logo {
   background-color: var(--grey-4);
   position: relative;
   color: var(--grey-4);
-  border-radius: 5px;
-  width: 20%;
+  border-radius: 5px 5px 0px 0px;
+  width: 150px;
+  height: 50px;
+  grid-column: 1 / span 2;
+  border-right: 3px solid var(--accent-4);
 }
 
 .nav-logo::before {
   content: "";
   position: absolute;
   width: 100%;
-  height: 5px;
+  height: 100%;
+  border-radius: 5px 5px 0px 0px;
+  border-right: 3px solid var(--accent-4);
   bottom: 0;
   left: 0;
   background-color: var(--accent-5);
@@ -92,10 +97,42 @@ nav ul {
   visibility: visible;
 }
 
-nav ul li.nav-text {
-  width: 80%;
+.nav-text {
+  text-decoration: none;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--base-2);
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
 }
 
+.nav-text:hover {
+  background-color: var(--base-3);
+}
+
+.nav-text-active {
+  background-color: var(--accent-4);
+  color: white;
+  text-decoration: none;
+}
+
+.nav-text-logout {
+  text-decoration: none;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--base-2);
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+}
+
+.nav-text-logout:hover {
+  background-color: var(--accent-1);
+}
+/* 
 .container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -105,19 +142,21 @@ nav ul li.nav-text {
   box-shadow: 0px 2px 4px var(--grey-2);
   position: relative;
   z-index: 1;
-}
-
+} */
+/* 
 .grid-header {
   grid-column: 2;
   color: var(--grey-1);
-}
+} */
 
-.header {
+/* .header {
   margin: 0;
   color: var(--grey-1);
-}
+  padding-left: 10px;
+  padding-top: 10px;
+} */
 
-.grid-items {
+/* .grid-items {
   display: grid;
   grid-column: 2 / span 1;
   grid-column-gap: 10px;
@@ -125,25 +164,27 @@ nav ul li.nav-text {
   grid-template-columns: 50px auto;
   border-radius: 5px;
   height: 400px;
-  padding: 10px;
+
   background-color: rgb(240, 243, 245);
   box-shadow: 0px 2px 4px var(--grey-2);
-}
-
+} */
+/* 
 .grid-item {
   display: grid;
   grid-column: 1 / span 2;
+  padding-left: 10px;
 }
 
 .grid-label {
   grid-column: 1;
   padding-top: 5px;
   color: var(--grey-1);
-}
-.grid-input {
+} */
+/* .grid-input {
   grid-column: 2;
   padding-top: 10px;
   height: 50%;
+  margin-right: 10px;
 }
 
 input[type="text"] {
@@ -154,35 +195,36 @@ input[type="text"] {
 
 input[type="text"]:focus {
   background-color: var(--grey-3);
-}
+} */
 
-.submit {
+/* .submit {
   display: grid;
   grid-column: 1 / span 2;
   grid-gap: 10px;
-  background-color: var(--grey-3);
+  background-color: var(--grey-4);
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 5px;
   box-shadow: 0px 2px 4px var(--grey-4);
-}
-
+} */
+/* 
 button.btn-cancel {
   grid-column: 1;
   font-weight: 500;
   letter-spacing: 4px;
   border-radius: 5px;
   background-color: transparent;
-  border: 1px solid var(--grey-3);
+  border: 1px solid var(--grey-4);
   margin-left: 5px;
 }
 
 button.btn-cancel:hover {
   border: 1px solid var(--grey-2);
-}
-
-button.btn-submit {
+} */
+/* 
+a.btn-submit {
   grid-column: 2;
+
   border: none;
   background-color: var(--base-4);
   color: var(--grey-5);
@@ -191,12 +233,16 @@ button.btn-submit {
   border-radius: 5px;
   box-shadow: 0px 2px 4px var(--grey-2);
   margin-right: 5px;
+  text-decoration: none;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
-button.btn-submit:hover {
+a.btn-submit:hover {
   transform: translate(0px, -1px);
   box-shadow: 0px 5px 10px var(--grey-2);
-}
+} */
 
 .side-menu {
   display: grid;
@@ -206,6 +252,8 @@ button.btn-submit:hover {
   grid-row-gap: 25px;
   color: var(--grey-4);
   border-right: 3px solid var(--accent-4);
+  box-shadow: 0px 2px 4px var(--grey-2);
+
   width: 150px;
   padding-top: 10px;
   padding-left: 5px;
@@ -249,4 +297,88 @@ button.btn-submit:hover {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
+}
+
+@media only screen and (max-width: 600px) {
+  .nav-logo {
+    display: none;
+  /* }
+  .container {
+    display: inline-block;
+    width: 100%;
+  } */
+  .App {
+    width: 100%;
+  }
+  .side-menu {
+    display: none;
+  }
+
+  nav {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 50px;
+    padding: none;
+    margin: none;
+  }
+
+  .nav-text {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  /* .grid-header {
+    text-align: center;
+  } */
+
+  /* .grid-items {
+    width: 100%;
+    height: 500px;
+    margin: 0px;
+  } */
+  /* 
+  .submit {
+    height: 100%;
+  } */
+  /* a.btn-submit {
+    width: 100%;
+    height: 50px;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    padding: none;
+  } */
+
+  nav::before {
+    content: "Loading";
+    display: grid;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 6px;
+    font-size: 30px;
+    align-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px 5px 0px 0px;
+    border-right: 3px solid var(--accent-4);
+    left: 0;
+    background-color: var(--accent-4);
+    visibility: hidden;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.4s ease-in 0s;
+  }
+
+  nav:hover::before {
+    transform: scaleX(1);
+    visibility: visible;
+  }
+
+  /* button.btn-cancel {
+    width: 100%;
+    height: 50px;
+    grid-column: 1 / span 2;
+    grid-row: 2;
+  } */
 }
