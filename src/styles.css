@@ -302,11 +302,12 @@ a.btn-submit:hover {
 @media only screen and (max-width: 600px) {
   .nav-logo {
     display: none;
-  /* }
-  .container {
+  }
+  /* .container {
     display: inline-block;
     width: 100%;
   } */
+
   .App {
     width: 100%;
   }
